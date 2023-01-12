@@ -1,22 +1,15 @@
-import { useState } from "react";
+import "./App.scss";
+import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 
-// import "./App.css";
-
-import {
-   createBrowserRouter,
-   RouterProvider,
-   Route,
-   Routes,
-   Router,
-   BrowserRouter,
-   Link,
-   createRoutesFromElements,
-   Navigate,
-} from "react-router-dom";
-import { CharactersList } from "./containers/CharactersList/CharactersList";
-import { CharacterDetail } from "./containers/CharacterDetail/CharacterDetail";
+// components
 import { Header } from "./components/Header/Header";
-import { About } from "./components/About/About";
+
+// containers
+import MovieList from "./containers/MovieList/MovieList";
+import MovieDetail from "./containers/MovieDetail/MovieDetail";
+import About from "./containers/About/About";
+import Login from "./containers/Login/Login";
+import Admin from "./containers/Admin/Admin";
 
 function App() {
    return (
@@ -24,10 +17,12 @@ function App() {
          <BrowserRouter>
             <Header />
             <Routes>
-               <Route path="/" element={<Navigate to="/character" />} />
-               <Route path="/character" element={<CharactersList />} />
-               <Route path="/character/:id" element={<CharacterDetail />} />
+               <Route path="/" element={<Navigate to="/movies" />} />
+               <Route path="/movies" element={<MovieList />} />
+               <Route path="/movies/:id" element={<MovieDetail />} />
                <Route path="/about" element={<About />} />
+               <Route path="/login" element={<Login />} />
+               <Route path="/admin" element={<Admin />} />
             </Routes>
          </BrowserRouter>
       </div>
