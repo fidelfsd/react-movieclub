@@ -48,7 +48,6 @@ export default function Login() {
       const { name, value } = e.target;
       setFormValues({
          ...formValues,
-
          [name]: value,
       });
    };
